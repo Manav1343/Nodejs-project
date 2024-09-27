@@ -1,0 +1,30 @@
+<%- include('../components/header') -%>
+
+<table class="table mt-4 table-info table-bordered table-striped">
+  <thead>
+    <tr>
+      <th scope="col">S.No</th>
+      <th scope="col">Moviename</th>
+      <th scope="col">moviedate</th>
+      <th scope="col">Movieposter</th>
+      <th scope="col">Discription</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%movieapi.map((movie,index)=>{%>
+    <tr>
+      <td><%=index+1%></td>
+      <td><%=movie?.moviename%></td>
+      <td><%=movie?.moviedate%></td>
+      <td><img src="/profile/<%=movie.movieposter%>" alt="" width="200" height="200"></td>
+      <td><%=movie?.moviediscription%></td>
+     <td>
+      <a href="/api/movie/<%=movie?._id%>" class="btn btn-danger" >Delete</a>
+      <a class="btn btn-primary" >Edit</a>
+    </td>
+    </tr>
+
+    <%})%>
+  </tbody>
+</table>
